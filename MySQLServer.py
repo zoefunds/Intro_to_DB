@@ -1,13 +1,12 @@
 import mysql.connector
 from mysql.connector import Error
-from datetime import datetime
 
 def create_database():
     """
     Creates the alx_book_store database in MySQL server.
     Handles connection errors and ensures proper resource management.
     
-    Current Date and Time (UTC): 2025-11-16 22:11:49
+    Current Date and Time (UTC): 2025-11-16 22:13:33
     Current User's Login: AirdropGucci
     """
     connection = None
@@ -34,14 +33,14 @@ def create_database():
                 # Print success message
                 print("Database 'alx_book_store' created successfully!")
                 
-            except Error as e:
+            except mysql.connector.Error as e:
                 print(f"Error executing CREATE DATABASE query: {e}")
             
             finally:
                 # Close cursor
                 cursor.close()
     
-    except Error as e:
+    except mysql.connector.Error as e:
         print(f"Error while connecting to MySQL: {e}")
     
     except Exception as e:
